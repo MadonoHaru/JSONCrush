@@ -1,21 +1,15 @@
-import resolve from "rollup-plugin-node-resolve";
-import commonjs from "rollup-plugin-commonjs";
+import typescript from "@rollup/plugin-typescript";
+import { terser } from "rollup-plugin-terser";
 
-export default {
-  input: "dist/esm/index.js",
+/** @type import("rollup").RollupOptions */
+const options = {
+  input: "./src/index.ts",
   output: {
-    file: "dist/umd/JSONCrush.js",
-    format: "umd",
-    name: "window",
-    extend: true
+    dir: "dist",
+    format: "cjs",
+    compact: true,
   },
-  plugins: [
-    resolve({
-      browser: true,
-      customResolveOptions: {
-        moduleDirectory: "dist/esm"
-      }
-    }),
-    commonjs()
-  ]
-};
+  plugins: [typescript(), terser({ mangle: true })],
+}
+
+export default options
