@@ -1,5 +1,5 @@
 {
-  "name": "json-crush",
+  "name": "@madono/jsoncrush",
   "version": "1.0.0",
   "description": "This simple system allows for excellent compression of uri encoded JSON strings using the JSCrush algorithm.",
   "homepage": "https://github.com/KilledByAPixel/JSONCrush#readme",
@@ -13,6 +13,10 @@
   "license": "MIT",
   "author": "Frank Force",
   "main": "dist/index.js",
+  "files": [
+    "index.d.ts",
+    "dist"
+  ],
   "scripts": {
     "build": "rollup -c"
   },
@@ -21,6 +25,5 @@
     "rollup": "^2.18.1",
     "rollup-plugin-terser": "^6.1.0",
     "typescript": "^3.9.5"
-  },
-  "files": ["index.d.ts", "dist"]
+  }
 }
